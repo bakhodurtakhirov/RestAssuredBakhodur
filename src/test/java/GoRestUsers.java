@@ -55,24 +55,24 @@ public class GoRestUsers {
                 .body("", hasSize(10)); //if entire body is an array then just "" is enough
     }
     
-    //    @Test(priority = 1)
-//    void createUsersList() {
-//        given().header("Authorization", "Bearer 1b75a03b6459ee4bda00bd05aeae5a75bbb1c59bf272598e048784ed1a4695f0")
-//                .body("{\"name\":\"" + randomName() + "\",\"gender\":\"male\",\"email\":\"" + randomEmail() + "\",\"status\":\"active\"}")
-//                .contentType(ContentType.JSON) //Content type is must
-//                .when().post()//Since the entire url is baseURI we dont' need to use anything in the get()
-//                .then()
-//                .log().body()
-//                .statusCode(201)
-//                .contentType(ContentType.JSON);
-///*        {
-//            "name": "{{$randomFullName}}",
-//                "gender": "male",
-//                "email": "{{$randomEmail}}",
-//                "status": "active"
-//        }*/
-//    }
-//
+        @Test(priority = 1)
+    void createUsersList() {
+        given().header("Authorization", "Bearer 1b75a03b6459ee4bda00bd05aeae5a75bbb1c59bf272598e048784ed1a4695f0")
+                .body("{\"name\":\"" + randomName() + "\",\"gender\":\"male\",\"email\":\"" + randomEmail() + "\",\"status\":\"active\"}")
+                .contentType(ContentType.JSON) //Content type is must
+                .when().post()//Since the entire url is baseURI we dont' need to use anything in the get()
+                .then()
+                .log().body()
+                .statusCode(201)
+                .contentType(ContentType.JSON);
+/*        {
+            "name": "{{$randomFullName}}",
+                "gender": "male",
+                "email": "{{$randomEmail}}",
+                "status": "active"
+        }*/
+    }
+
     @Test(priority = 2)
     void createNewUserWithMaps() {
         Map<String, String> user = new HashMap<>(); //The key are always string. Object super class is necessary if values are of different type
